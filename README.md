@@ -1,0 +1,3 @@
+
+
+nvchad config for myself
