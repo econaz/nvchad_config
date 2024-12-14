@@ -23,6 +23,8 @@ return {
             silent = true,
             buffer = bufnr,
           }
+
+          vim.keymap.set("n", "<leader>rcg", "<Cmd>RustLsp openCargo<CR>", bufopts)
           vim.keymap.set("n", "<leader>rd", "<Cmd>RustLsp debuggables<CR>", bufopts)
           vim.keymap.set("n", "<leader>rt", "<Cmd>RustLsp testables<CR>", bufopts)
           vim.keymap.set("n", "<leader>rr", "<Cmd>RustLsp runnables<CR>", bufopts)
@@ -36,12 +38,15 @@ return {
               importPrefix = "create",
             },
             cargo = { allFeatures = true },
-            checkOnSave = {
-              -- default: `cargo check` but `clippy` can be used too.
-              command = "cargo check",
-              allFeatures = true,
-            },
+            -- checkOnSave = {
+            --   -- default: `cargo check` but `clippy` can be used too.
+            --   command = "cargo check",
+            --   allFeatures = true,
+            -- },
             inlayHints = {
+              reborrowHints = {
+                enable = true,
+              },
               lifetimeElisionHints = {
                 enable = true,
                 useParameterNames = true,

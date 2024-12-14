@@ -47,3 +47,24 @@ map("n", "<leader>wd", "<C-W>c", { desc = "Delete Window", remap = true })
 -- map("n", "gd", vim.lsp.buf.definition, { desc = "go to definition" })
 -- map("n", "gr", vim.lsp.buf.references, { desc = "references" })
 -- map("n", "gi", vim.lsp.buf.implementation, { desc = "Goto implementation" })
+map("n", "<A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
+map("n", "<A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up" })
+map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
+map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
+map("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
+map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
+
+--- Open compiler
+-- vim.api.nvim_set_keymap("n", "<F6>", "<cmd>CompilerOpen<cr>", { noremap = true, silent = true })
+--
+-- -- Redo last selected option
+-- vim.api.nvim_set_keymap(
+--   "n",
+--   "<S-F6>",
+--   "<cmd>CompilerStop<cr>" -- (Optional, to dispose all tasks before redo)
+--     .. "<cmd>CompilerRedo<cr>",
+--   { noremap = true, silent = true }
+-- )
+--
+-- -- Toggle compiler results
+-- vim.api.nvim_set_keymap("n", "<S-F7>", "<cmd>CompilerToggleResults<cr>", { noremap = true, silent = true })
