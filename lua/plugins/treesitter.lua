@@ -1,7 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   opts = {
-    ensure_installed = { "c", "vim", "rust" },
+    ensure_installed = { "vim", "rust" },
     auto_install = true,
     highlight = {
       enable = true,
